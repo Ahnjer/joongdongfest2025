@@ -33,11 +33,7 @@
             margin: 0;
         }
         .score-board {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.1em;
+            display: none;
         }
         .player1-score {
             color: #4ade80;
@@ -55,6 +51,30 @@
             border: 4px solid white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             background: #1a1a2e;
+            position: relative;
+        }
+        .canvas-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .corner-score {
+            position: absolute;
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px 15px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 8px;
+            z-index: 10;
+        }
+        .corner-score.player1 {
+            top: 10px;
+            left: 10px;
+            color: #4ade80;
+        }
+        .corner-score.player2 {
+            top: 10px;
+            right: 10px;
+            color: #fb923c;
         }
         .controls {
             font-size: 0.85em;
@@ -229,7 +249,11 @@
             <div class="target-score">목표: 20점</div>
             <div class="player2-score">플레이어 2: <span id="score2">0</span></div>
         </div>
-        <canvas id="gameCanvas" width="600" height="600"></canvas>
+        <div class="canvas-wrapper">
+            <div class="corner-score player1">P1: <span id="score1">0</span></div>
+            <div class="corner-score player2">P2: <span id="score2">0</span></div>
+            <canvas id="gameCanvas" width="560" height="560"></canvas>
+        </div>
         <div class="controls">
             <div>🎮 P1 (초록): W,A,S,D</div>
             <div>🎮 P2 (주황): 화살표</div>
