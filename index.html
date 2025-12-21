@@ -34,6 +34,7 @@
             padding: 1vh 0;
             font-size: 3vh;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #fbbf24;
         }
         .left-score {
             grid-column: 1;
@@ -55,9 +56,12 @@
             background: rgba(0,0,0,0.7);
             padding: 2vh 3vh;
             border-radius: 15px;
-            font-size: 3vh;
             font-weight: bold;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .score-display.player1 {
             color: #4ade80;
@@ -174,25 +178,25 @@
         }
         .start-content {
             text-align: center;
-            max-width: 70vh;
-            padding: 3vh 4vh;
+            max-width: 90vh;
+            padding: 4vh 5vh;
             background: rgba(102, 126, 234, 0.2);
             border-radius: 20px;
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
         .start-content h2 {
-            font-size: 4vh;
-            margin-bottom: 3vh;
+            font-size: 5vh;
+            margin-bottom: 4vh;
             color: #fff;
         }
         .rules {
             text-align: left;
-            margin: 2vh 0;
-            font-size: 2vh;
-            line-height: 1.6;
+            margin: 3vh 0;
+            font-size: 2.5vh;
+            line-height: 1.8;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2vh 3vh;
+            gap: 2.5vh 4vh;
         }
         .rules > div {
             margin: 0;
@@ -241,7 +245,7 @@
                     <strong style="font-size: 1.1em;">🏆 점수 규칙</strong>
                 </div>
                 <div>• 🍎 사과 먹기: <span class="rule-highlight">+1점</span></div>
-                <div>• 💀 상대 죽이기: <span class="rule-highlight">+10점</span></div>
+                <div>• ⚔️ 상대방 처치: <span class="rule-highlight">+10점</span></div>
                 <div class="full-width" style="text-align: center;">• 먼저 <span class="rule-highlight">20점</span> 달성 시 승리!</div>
                 <div class="full-width" style="text-align: center; color: #fb923c;">• <span class="rule-highlight">한 명이 죽으면 즉시 종료</span>, 점수로 승패 판정</div>
                 
@@ -256,7 +260,7 @@
     </div>
 
     <div class="game-layout">
-        <div class="title">🐍 1v1 스네이크 게임 🐍</div>
+        <div class="title">🍎 사과 먹기:+1점  |  ⚔️ 상대방 처치:+10점!</div>
         
         <div class="left-score">
             <div class="score-display player1">
