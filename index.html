@@ -20,72 +20,85 @@
             color: white;
             overflow: hidden;
         }
-        .game-container {
+        .game-layout {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            grid-template-rows: auto 1fr auto;
+            width: 100vw;
+            height: 100vh;
+            gap: 0;
+        }
+        .title {
+            grid-column: 1 / -1;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        h1 {
-            font-size: 2em;
+            padding: 1vh 0;
+            font-size: 3vh;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin: 0;
         }
-        .score-board {
-            display: none;
+        .left-score {
+            grid-column: 1;
+            grid-row: 2;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 5vh;
         }
-        .player1-score {
+        .right-score {
+            grid-column: 3;
+            grid-row: 2;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 5vh;
+        }
+        .score-display {
+            background: rgba(0,0,0,0.7);
+            padding: 2vh 3vh;
+            border-radius: 15px;
+            font-size: 3vh;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .score-display.player1 {
             color: #4ade80;
-            font-weight: bold;
+            border: 3px solid #4ade80;
         }
-        .player2-score {
+        .score-display.player2 {
             color: #fb923c;
-            font-weight: bold;
+            border: 3px solid #fb923c;
         }
-        .target-score {
-            color: #fbbf24;
-            font-size: 0.85em;
+        .score-label {
+            font-size: 2vh;
+            opacity: 0.8;
+            margin-bottom: 1vh;
+        }
+        .score-value {
+            font-size: 5vh;
+        }
+        .canvas-container {
+            grid-column: 2;
+            grid-row: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         canvas {
             border: 4px solid white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             background: #1a1a2e;
-            position: relative;
-        }
-        .canvas-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-        .corner-score {
-            position: absolute;
-            font-size: 1.5em;
-            font-weight: bold;
-            padding: 10px 15px;
-            background: rgba(0,0,0,0.7);
-            border-radius: 8px;
-            z-index: 10;
-        }
-        .corner-score.player1 {
-            top: 10px;
-            left: 10px;
-            color: #4ade80;
-        }
-        .corner-score.player2 {
-            top: 10px;
-            right: 10px;
-            color: #fb923c;
+            width: 93.33vh;
+            height: 93.33vh;
         }
         .controls {
-            font-size: 0.85em;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 1vh 0;
+            font-size: 1.8vh;
             background: rgba(255,255,255,0.1);
-            padding: 12px 20px;
-            border-radius: 10px;
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 3vh;
             justify-content: center;
-            max-width: 600px;
+            flex-wrap: wrap;
         }
         .controls > div {
             white-space: nowrap;
@@ -96,7 +109,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: rgba(0,0,0,0.9);
-            padding: 40px;
+            padding: 4vh;
             border-radius: 20px;
             display: none;
             text-align: center;
@@ -106,13 +119,13 @@
             display: block;
         }
         .game-over h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: 4vh;
+            margin-bottom: 2vh;
         }
         .game-over button {
-            margin-top: 20px;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            margin-top: 2vh;
+            padding: 2vh 4vh;
+            font-size: 2.5vh;
             background: #667eea;
             color: white;
             border: none;
@@ -129,7 +142,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 8em;
+            font-size: 15vh;
             font-weight: bold;
             color: white;
             text-shadow: 0 0 20px rgba(255,255,255,0.5);
@@ -161,25 +174,25 @@
         }
         .start-content {
             text-align: center;
-            max-width: 700px;
-            padding: 30px 40px;
+            max-width: 70vh;
+            padding: 3vh 4vh;
             background: rgba(102, 126, 234, 0.2);
             border-radius: 20px;
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
         .start-content h2 {
-            font-size: 2.2em;
-            margin-bottom: 25px;
+            font-size: 4vh;
+            margin-bottom: 3vh;
             color: #fff;
         }
         .rules {
             text-align: left;
-            margin: 15px 0;
-            font-size: 1em;
+            margin: 2vh 0;
+            font-size: 2vh;
             line-height: 1.6;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px 30px;
+            gap: 2vh 3vh;
         }
         .rules > div {
             margin: 0;
@@ -188,16 +201,16 @@
             grid-column: 1 / -1;
         }
         .rule-section {
-            margin-bottom: 10px;
+            margin-bottom: 1vh;
         }
         .rule-highlight {
             color: #fbbf24;
             font-weight: bold;
         }
         .start-button {
-            margin-top: 25px;
-            padding: 18px 45px;
-            font-size: 1.4em;
+            margin-top: 3vh;
+            padding: 2.5vh 5vh;
+            font-size: 3vh;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
@@ -218,13 +231,13 @@
         <div class="start-content">
             <h2>🐍 1v1 스네이크 게임 🐍</h2>
             <div class="rules">
-                <div class="rule-section full-width" style="text-align: center; margin-bottom: 10px;">
+                <div class="rule-section full-width" style="text-align: center; margin-bottom: 1vh;">
                     <strong style="font-size: 1.1em;">🎮 조작법</strong>
                 </div>
                 <div>• 플레이어 1 (초록): <span class="rule-highlight">W, A, S, D</span></div>
                 <div>• 플레이어 2 (주황): <span class="rule-highlight">↑, ←, ↓, →</span></div>
                 
-                <div class="rule-section full-width" style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
+                <div class="rule-section full-width" style="text-align: center; margin-top: 1vh; margin-bottom: 1vh;">
                     <strong style="font-size: 1.1em;">🏆 점수 규칙</strong>
                 </div>
                 <div>• 🍎 사과 먹기: <span class="rule-highlight">+1점</span></div>
@@ -232,7 +245,7 @@
                 <div class="full-width" style="text-align: center;">• 먼저 <span class="rule-highlight">20점</span> 달성 시 승리!</div>
                 <div class="full-width" style="text-align: center; color: #fb923c;">• <span class="rule-highlight">한 명이 죽으면 즉시 종료</span>, 점수로 승패 판정</div>
                 
-                <div class="rule-section full-width" style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
+                <div class="rule-section full-width" style="text-align: center; margin-top: 1vh; margin-bottom: 1vh;">
                     <strong style="font-size: 1.1em;">📌 게임 규칙</strong>
                 </div>
                 <div>• 벽 통과 시 반대편 등장</div>
@@ -242,18 +255,27 @@
         </div>
     </div>
 
-    <div class="game-container">
-        <h1>🐍 1v1 스네이크 게임 🐍</h1>
-        <div class="score-board">
-            <div class="player1-score">플레이어 1: <span id="score1">0</span></div>
-            <div class="target-score">목표: 20점</div>
-            <div class="player2-score">플레이어 2: <span id="score2">0</span></div>
+    <div class="game-layout">
+        <div class="title">🐍 1v1 스네이크 게임 🐍</div>
+        
+        <div class="left-score">
+            <div class="score-display player1">
+                <div class="score-label">플레이어 1</div>
+                <div class="score-value"><span id="score1">0</span>점</div>
+            </div>
         </div>
-        <div class="canvas-wrapper">
-            <div class="corner-score player1">P1: <span id="score1">0</span></div>
-            <div class="corner-score player2">P2: <span id="score2">0</span></div>
-            <canvas id="gameCanvas" width="560" height="560"></canvas>
+        
+        <div class="canvas-container">
+            <canvas id="gameCanvas" width="840" height="840"></canvas>
         </div>
+        
+        <div class="right-score">
+            <div class="score-display player2">
+                <div class="score-label">플레이어 2</div>
+                <div class="score-value"><span id="score2">0</span>점</div>
+            </div>
+        </div>
+        
         <div class="controls">
             <div>🎮 P1 (초록): W,A,S,D</div>
             <div>🎮 P2 (주황): 화살표</div>
@@ -274,8 +296,8 @@
     <script>
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
-        const gridSize = 20;
-        const tileCount = canvas.width / gridSize;
+        const gridSize = 28;
+        const tileCount = 28;
 
         let game = {
             player1: {
@@ -287,7 +309,7 @@
                 dead: false
             },
             player2: {
-                snake: [{x: 24, y: 24}, {x: 24, y: 25}, {x: 24, y: 26}],
+                snake: [{x: 22, y: 22}, {x: 22, y: 23}, {x: 22, y: 24}],
                 dx: 0,
                 dy: -1,
                 score: 0,
@@ -328,7 +350,7 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             ctx.strokeStyle = '#ffffff11';
-            for (let i = 0; i < tileCount; i++) {
+            for (let i = 0; i <= tileCount; i++) {
                 ctx.beginPath();
                 ctx.moveTo(i * gridSize, 0);
                 ctx.lineTo(i * gridSize, canvas.height);
@@ -475,7 +497,7 @@
                     dead: false
                 },
                 player2: {
-                    snake: [{x: 24, y: 24}, {x: 24, y: 25}, {x: 24, y: 26}],
+                    snake: [{x: 22, y: 22}, {x: 22, y: 23}, {x: 22, y: 24}],
                     dx: 0,
                     dy: -1,
                     score: 0,
