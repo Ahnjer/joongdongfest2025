@@ -33,6 +33,7 @@
             font-size: 24px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             color: #fbbf24;
+            z-index: 10;
         }
         .main-container {
             flex: 1;
@@ -41,6 +42,7 @@
             align-items: center;
             position: relative;
             padding: 20px;
+            width: 100%;
         }
         .canvas-container {
             position: relative;
@@ -61,10 +63,20 @@
             z-index: 2;
         }
         .left-score {
-            left: 20px;
+            left: 0;
+            right: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 320px;
         }
         .right-score {
-            right: 20px;
+            left: 50%;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 320px;
         }
         .score-display {
             background: rgba(0,0,0,0.7);
@@ -75,8 +87,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            min-width: 120px;
+            padding: 50px 40px;
+            min-width: 280px;
         }
         .score-display > div {
             width: 100%;
@@ -91,13 +103,13 @@
             border: 3px solid #3b82f6;
         }
         .score-label {
-            font-size: 16px;
+            font-size: 32px;
             opacity: 0.8;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             white-space: nowrap;
         }
         .score-value {
-            font-size: 36px;
+            font-size: 80px;
             white-space: nowrap;
         }
         .controls {
@@ -265,7 +277,7 @@
                 <div class="rule-section full-width" style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
                     <strong style="font-size: 1.1em;">🏆 점수 규칙</strong>
                 </div>
-                <div>• 🍎 사과 먹기: <span class="rule-highlight">+1점</span></div>
+                <div>• 🍏 청사과 먹기: <span class="rule-highlight">+1점</span></div>
                 <div>• ⚔️ 상대방 처치: <span class="rule-highlight">+10점</span></div>
                 <div class="full-width" style="text-align: center;">• 먼저 <span class="rule-highlight">20점</span> 달성 시 승리!</div>
                 <div class="full-width" style="text-align: center; color: #fb923c;">• <span class="rule-highlight">한 명이 죽으면 즉시 종료</span>, 점수로 승패 판정</div>
@@ -281,7 +293,7 @@
     </div>
 
     <div class="game-layout">
-        <div class="title">🍎 사과 먹기:+1점  |  ⚔️ 상대방 처치:+10점!</div>
+        <div class="title">🍏 청사과 먹기:+1점  |  ⚔️ 상대방 처치:+10점!</div>
         
         <div class="main-container">
             <div class="left-score">
@@ -306,7 +318,7 @@
         <div class="controls">
             <div>🎮 P1 (빨강): W,A,S,D</div>
             <div>🎮 P2 (파랑): 화살표</div>
-            <div>🍎 +1점</div>
+            <div>🍏 +1점</div>
             <div>💀 +10점</div>
             <div>🏆 목표 20점</div>
         </div>
@@ -393,7 +405,7 @@
                 }
 
                 game.food.forEach(f => {
-                    ctx.fillStyle = '#ef4444';
+                    ctx.fillStyle = '#22c55e';
                     ctx.beginPath();
                     ctx.arc(f.x * gridSize + gridSize/2, f.y * gridSize + gridSize/2, gridSize/2 - 2, 0, Math.PI * 2);
                     ctx.fill();
